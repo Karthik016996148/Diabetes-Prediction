@@ -30,13 +30,22 @@ We use a Random Forest Classifier trained on the **Pima Indians Diabetes Dataset
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/iam-veeramalla/first-mlops-project.git
-cd first-mlops-project
+git clone https://github.com/Karthik016996148/Diabetes-Prediction.git
+cd Diabetes-Prediction
 ```
 
 ### 2. Create Virtual Environment
 
+#### Windows (PowerShell)
+
+```powershell
+py -m venv .mlops
+.\.mlops\Scripts\Activate.ps1
 ```
+
+#### Linux/macOS (bash/zsh)
+
+```bash
 python3 -m venv .mlops
 source .mlops/bin/activate
 ```
@@ -52,6 +61,8 @@ pip install -r requirements.txt
 ```
 python train.py
 ```
+
+This creates deployable artifacts in `artifacts/` (model + metadata + metrics).
 
 ## Run the API Locally
 
@@ -76,19 +87,19 @@ uvicorn main:app --reload
 ### Build the Docker Image
 
 ```
-docker build -t diabetes-prediction-model .
+docker build -t diabetes-prediction:latest .
 ```
 
 ### Run the Container
 
 ```
-docker run -p 8000:8000 diabetes-prediction-model
+docker run -p 8000:8000 diabetes-prediction:latest
 ```
 
 ## Deploy to Kubernetes
 
 ```
-kubectl apply -f diabetes-prediction-model-deployment.yaml
+kubectl apply -f k8s-deploy.yml
 ```
 
 🙌 Credits

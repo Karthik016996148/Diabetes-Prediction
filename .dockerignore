@@ -1,0 +1,19 @@
+.git
+.venv
+venv
+env
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.ipynb_checkpoints
+.DS_Store
+
+# local artifacts can be large; keep the repo artifacts if you commit them
+# (remove the next line if you want artifacts included in the image build context)
+# artifacts
+
+
